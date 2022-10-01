@@ -3,20 +3,36 @@ import { StyleSheet, Text, TouchableOpacity, TextInput, View } from "react-nativ
 import styles from "./styles";
 import { FontAwesome } from '@expo/vector-icons';
 
+
+const listaTeste = [
+    {
+        id:1,
+        valor:500,
+        tipo:1//receita
+    }
+]
+
+
+
 export default function CalculadoraFinanceira() {
 
     const [receita, setReceita] = useState(null);
     const [despesas, setDespesas] = useState(null);
+    const [lista, setLista] = useState([])
 
 
-    function inserir(){
-        
+    function inserir(){       
+        if (receita !== null && receita !== ""){
+            alert("r")
+        }else if(despesas !== null && despesas !== ""){
+            alert("d")
+        }else{
+            alert("Preencha um campo")
+        }
 
     }
 
-    function resetFields(){
-        
-    }
+    
     return (
         <View style={styles.containerPai}>
             <View style={styles.containerHead}>
@@ -39,7 +55,7 @@ export default function CalculadoraFinanceira() {
 
                     </View>
                     <View style={styles.containerEsq}>
-                        <TouchableOpacity style={styles.btnIserir}>
+                        <TouchableOpacity onPress={inserir} style={styles.btnIserir}>
                             <FontAwesome name="send-o" size={80} color="black" />
                         </TouchableOpacity>
 
